@@ -203,7 +203,19 @@ module TabsOnRails
       def tabs_tag(options = {}, &block)
         Tabs.new(self, { :namespace => :default }.merge(options)).render(&block)
       end
-    end
 
+     
+      def tb_nav(options = {}, &block)
+        Tabs.new(self, { :namespace => :default, :builder => TabsOnRails::Tabs::BootstrapNavBuilder, :open_tabs => {:class => 'nav'}}.merge(options)).render(&block)
+      end
+
+      def tb_nav_pills(options = {}, &block)
+        tb_nav(:open_tabs => {:class => 'nav nav-pills'}, &block)
+      end
+
+      def tb_nav_tabs(options = {}, &block)
+        tb_nav(:open_tabs => {:class => 'nav nav-tabs'}, &block)
+      end
+    end
   end
 end

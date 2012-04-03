@@ -55,6 +55,9 @@ module TabsOnRails
         tab.to_s == @context.current_tab(@namespace).to_s
       end
 
+      def current_tab
+        @context.current_tab(@namespace).to_s
+      end
 
       # Creates and returns a tab with given +args+.
       #
